@@ -1,4 +1,6 @@
 from flask import Flask, render_template , request
+
+from decryptor import dec_message
 from encryptor import enc_message
 from flask_mail import Message, Mail
 
@@ -63,7 +65,7 @@ def Decode():
 @app.route('/decode_message', methods=['POST'])
 def decode_message():
     decode_message = request.form['decode_message']
-    decode_message = enc_message(decode_message)
+    decode_message = dec_message(decode_message)
     return render_template('decode_message.html', decode_message=decode_message)
 
 
