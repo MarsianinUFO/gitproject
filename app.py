@@ -64,6 +64,7 @@ def Decode():
 
 @app.route('/decode_message', methods=['POST'])
 def decode_message():
+    print('function is working')
     decode_message = request.form['decode_message']
     decode_message = dec_message(decode_message)
     return render_template('decode_message.html', decode_message=decode_message)
